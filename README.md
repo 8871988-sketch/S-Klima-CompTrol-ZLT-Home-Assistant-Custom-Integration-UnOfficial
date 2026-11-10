@@ -17,6 +17,7 @@ Deutsch: [siehe unten](#deutsch) · Українською: [див. нижче]
 ## Contents
 
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -44,6 +45,28 @@ Deutsch: [siehe unten](#deutsch) · Українською: [див. нижче]
 - Respects locks set on the controller (a locked value cannot be changed from Home Assistant)
 - Set up in the UI (config flow), re-authentication, options
 - Translations: English, German, Ukrainian
+
+## Screenshots
+
+**Thermostat cards** – one climate entity per indoor unit with mode, set point, fan speed and louver:
+
+![Thermostat cards](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/dashboard_thermostats.png)
+
+**Compact tile cards** for many units:
+
+![Tile cards](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/dashboard_tiles.png)
+
+**Device page** of an indoor unit – climate entity, sensors, diagnostics and history:
+
+![Device page](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/device_page.png)
+
+![Device info](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/device_info.png)
+
+**Example of a dashboard built on top of the integration** with own helpers and automations (master switch, season, comfort/eco set points, working hours). These helpers and automations are *not* part of the integration – see [`examples`](examples) for a starting point:
+
+![Dashboard controls](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/dashboard_controls.png)
+
+![Set points and schedule](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/dashboard_setpoints.png)
 
 ## Requirements
 
