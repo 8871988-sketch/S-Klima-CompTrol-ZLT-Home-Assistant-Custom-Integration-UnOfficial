@@ -100,6 +100,9 @@ User name and password must not contain an apostrophe (`'`).
 1. **Settings → Devices & services → Add integration** → search for **S-Klima CompTrol ZLT**.
 2. Fill in the form:
 
+   ![Setup form](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/setup.png)
+
+
    | Field | Meaning |
    |---|---|
    | **Host** | IP address or host name of the CompTrol ZLT, e.g. `192.168.1.50` |
