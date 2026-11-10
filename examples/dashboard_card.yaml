@@ -1,0 +1,17 @@
+# Thermostat plus status rows for one indoor unit ("office").
+type: vertical-stack
+cards:
+  - type: thermostat
+    entity: climate.office
+    features:
+      - type: climate-hvac-modes
+        hvac_modes: ["off", heat, cool, dry, fan_only]
+      - type: climate-fan-modes
+  - type: entities
+    entities:
+      - entity: sensor.office_room_temperature
+      - entity: binary_sensor.office_online
+      - entity: binary_sensor.office_filter
+      - entity: binary_sensor.office_fault
+      - entity: sensor.office_error_code
+      - entity: sensor.comptrol_zlt_outside_temperature

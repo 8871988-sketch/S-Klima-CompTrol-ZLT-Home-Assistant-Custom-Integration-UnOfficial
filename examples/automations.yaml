@@ -1,0 +1,76 @@
+# Example automations. Replace the entity IDs with yours and
+# "notify.notify" with your notification service.
+
+# 1) Fault / filter / offline notification with debounce.
+#    The "for" times make sure only lasting problems are reported.
+- id: s_klima_notifications
+  alias: "S-Klima: fault / filter notification"
+  triggers:
+    - trigger: state
+      entity_id:
+        - binary_sensor.office_fault
+        - binary_sensor.meeting_room_fault
+      to: "on"
+      for: { minutes: 5 }
+      id: fault
+    - trigger: state
+      entity_id:
+        - binary_sensor.office_filter
+        - binary_sensor.meeting_room_filter
+      to: "on"
+      for: { minutes: 15 }
+      id: filter
+    - trigger: state
+      entity_id:
+        - binary_sensor.office_online
+        - binary_sensor.meeting_room_online
+      to: "off"
+      for: { minutes: 10 }
+      id: offline
+  actions:
+    - variables:
+        unit: "{{ device_attr(device_id(trigger.entity_id), 'name') }}"
+        code: >-
+          {{ states(trigger.entity_id | replace('binary_sensor.', 'sensor.')
+             | replace('_fault', '_error_code')) }}
+    - action: notify.notify
+      data:
+        title: S-Klima
+        message: >-
+          {% if trigger.id == 'fault' %}Fault at {{ unit }} (error code {{ code }})
+          {% elif trigger.id == 'filter' %}{{ unit }}: clean the filter
+          {% else %}{{ unit }} has been offline for 10 minutes{% endif %}
+  mode: queued
+
+# 2) Window open for 2 minutes -> unit off.
+- id: s_klima_window_open
+  alias: "S-Klima: window open -> office unit off"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.office_window
+      to: "on"
+      for: { minutes: 2 }
+  conditions:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: climate.office
+          state: "off"
+  actions:
+    - action: climate.turn_off
+      target:
+        entity_id: climate.office
+
+# 3) All units off at the end of the working day.
+- id: s_klima_end_of_day
+  alias: "S-Klima: all units off at 18:00"
+  triggers:
+    - trigger: time
+      at: "18:00:00"
+  actions:
+    - action: climate.turn_off
+      target:
+        # list your units, or use a label/area that contains them
+        entity_id:
+          - climate.office
+          - climate.meeting_room

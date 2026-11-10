@@ -1,0 +1,102 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Підключення CompTrol ZLT",
+        "description": "Вкажіть адресу S-Klima CompTrol ZLT та користувача його веб-інтерфейсу. Порада: створіть окремого користувача для Home Assistant у Konfig. → Benutzerverwaltung.",
+        "data": {
+          "host": "Хост",
+          "username": "Ім'я користувача",
+          "password": "Пароль"
+        },
+        "data_description": {
+          "host": "IP-адреса або ім'я хоста CompTrol ZLT, напр. 192.168.1.50"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Повторний вхід у CompTrol ZLT",
+        "description": "Облікові дані для {host} більше не приймаються. Введіть їх ще раз.",
+        "data": {
+          "username": "Ім'я користувача",
+          "password": "Пароль"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "CompTrol ZLT недоступний. Перевірте адресу та чи має Home Assistant доступ до цієї мережі (firewall/VLAN).",
+      "invalid_auth": "Неправильне ім'я користувача чи пароль, або користувач неактивний.",
+      "invalid_characters": "Ім'я користувача та пароль не можуть містити апостроф (').",
+      "encryption_unsupported": "Цей CompTrol ZLT використовує шифровані запити, які інтеграція поки не підтримує.",
+      "no_units": "Вхід успішний, але внутрішніх блоків не знайдено.",
+      "unknown": "Неочікувана помилка, дивіться журнал."
+    },
+    "abort": {
+      "already_configured": "Цей CompTrol ZLT уже налаштовано.",
+      "reauth_successful": "Облікові дані оновлено."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Параметри",
+        "data": {
+          "scan_interval": "Інтервал опитування (секунди)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "indoor_unit": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "auto": "Авто",
+              "1": "Швидкість 1",
+              "2": "Швидкість 2",
+              "3": "Швидкість 3",
+              "4": "Швидкість 4"
+            }
+          },
+          "swing_mode": {
+            "state": {
+              "position_1": "Положення 1",
+              "position_2": "Положення 2",
+              "position_3": "Положення 3",
+              "position_4": "Положення 4",
+              "swing": "Хитання"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "outside_temperature": {
+        "name": "Зовнішня температура"
+      },
+      "room_temperature": {
+        "name": "Температура в приміщенні"
+      },
+      "error_code": {
+        "name": "Код помилки"
+      },
+      "current_power": {
+        "name": "Потужність"
+      },
+      "energy": {
+        "name": "Енергія"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Несправність"
+      },
+      "filter": {
+        "name": "Фільтр"
+      },
+      "online": {
+        "name": "На зв'язку"
+      }
+    }
+  }
+}

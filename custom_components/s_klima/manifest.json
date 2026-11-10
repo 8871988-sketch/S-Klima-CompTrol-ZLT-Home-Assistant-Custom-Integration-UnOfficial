@@ -1,0 +1,14 @@
+{
+  "domain": "s_klima",
+  "name": "S-Klima CompTrol ZLT (unofficial)",
+  "codeowners": [
+    "@8871988-sketch"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial",
+  "integration_type": "hub",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/issues",
+  "requirements": [],
+  "version": "0.2.0"
+}

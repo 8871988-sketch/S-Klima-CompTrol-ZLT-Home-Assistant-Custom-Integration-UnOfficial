@@ -1,0 +1,102 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "CompTrol ZLT verbinden",
+        "description": "Adresse der S-Klima CompTrol ZLT und einen Benutzer der Weboberfläche eingeben. Tipp: Lege unter Konfig. → Benutzerverwaltung einen eigenen Benutzer für Home Assistant an.",
+        "data": {
+          "host": "Host",
+          "username": "Benutzername",
+          "password": "Passwort"
+        },
+        "data_description": {
+          "host": "IP-Adresse oder Hostname der CompTrol ZLT, z. B. 192.168.1.50"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Erneut an CompTrol ZLT anmelden",
+        "description": "Die Zugangsdaten für {host} werden nicht mehr akzeptiert. Bitte erneut eingeben.",
+        "data": {
+          "username": "Benutzername",
+          "password": "Passwort"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "CompTrol ZLT nicht erreichbar. Adresse prüfen und ob Home Assistant dieses Netz erreicht (Firewall/VLAN).",
+      "invalid_auth": "Benutzername oder Passwort falsch oder Benutzer nicht aktiv.",
+      "invalid_characters": "Benutzername und Passwort dürfen kein Apostroph (') enthalten.",
+      "encryption_unsupported": "Diese CompTrol ZLT verwendet verschlüsselte Anfragen, die diese Integration noch nicht unterstützt.",
+      "no_units": "Anmeldung erfolgreich, aber keine Innengeräte gefunden.",
+      "unknown": "Unerwarteter Fehler, siehe Log."
+    },
+    "abort": {
+      "already_configured": "Diese CompTrol ZLT ist bereits eingerichtet.",
+      "reauth_successful": "Zugangsdaten aktualisiert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Optionen",
+        "data": {
+          "scan_interval": "Abfrageintervall (Sekunden)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "indoor_unit": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "auto": "Automatik",
+              "1": "Stufe 1",
+              "2": "Stufe 2",
+              "3": "Stufe 3",
+              "4": "Stufe 4"
+            }
+          },
+          "swing_mode": {
+            "state": {
+              "position_1": "Position 1",
+              "position_2": "Position 2",
+              "position_3": "Position 3",
+              "position_4": "Position 4",
+              "swing": "Schwenken"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "outside_temperature": {
+        "name": "Außentemperatur"
+      },
+      "room_temperature": {
+        "name": "Raumtemperatur"
+      },
+      "error_code": {
+        "name": "Fehlercode"
+      },
+      "current_power": {
+        "name": "Leistung"
+      },
+      "energy": {
+        "name": "Energie"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Störung"
+      },
+      "filter": {
+        "name": "Filter"
+      },
+      "online": {
+        "name": "Online"
+      }
+    }
+  }
+}

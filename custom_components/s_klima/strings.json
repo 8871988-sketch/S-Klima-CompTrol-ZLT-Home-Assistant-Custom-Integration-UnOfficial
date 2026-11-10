@@ -1,0 +1,102 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect CompTrol ZLT",
+        "description": "Enter the address of the S-Klima CompTrol ZLT and a user of its web interface. Tip: create a dedicated user for Home Assistant in Konfig. → Benutzerverwaltung.",
+        "data": {
+          "host": "Host",
+          "username": "User name",
+          "password": "Password"
+        },
+        "data_description": {
+          "host": "IP address or host name of the CompTrol ZLT, e.g. 192.168.1.50"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Log in to CompTrol ZLT again",
+        "description": "The credentials for {host} are no longer accepted. Enter them again.",
+        "data": {
+          "username": "User name",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot reach the CompTrol ZLT. Check the address and that Home Assistant can reach this network (firewall/VLAN).",
+      "invalid_auth": "User name or password is wrong, or the user is not active.",
+      "invalid_characters": "User name and password must not contain an apostrophe (').",
+      "encryption_unsupported": "This CompTrol ZLT uses encrypted requests, which this integration does not support yet.",
+      "no_units": "Login worked, but no indoor units were found.",
+      "unknown": "Unexpected error, see the log."
+    },
+    "abort": {
+      "already_configured": "This CompTrol ZLT is already configured.",
+      "reauth_successful": "Credentials updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "indoor_unit": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "auto": "Auto",
+              "1": "Level 1",
+              "2": "Level 2",
+              "3": "Level 3",
+              "4": "Level 4"
+            }
+          },
+          "swing_mode": {
+            "state": {
+              "position_1": "Position 1",
+              "position_2": "Position 2",
+              "position_3": "Position 3",
+              "position_4": "Position 4",
+              "swing": "Swinging"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "outside_temperature": {
+        "name": "Outside temperature"
+      },
+      "room_temperature": {
+        "name": "Room temperature"
+      },
+      "error_code": {
+        "name": "Error code"
+      },
+      "current_power": {
+        "name": "Power"
+      },
+      "energy": {
+        "name": "Energy"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Fault"
+      },
+      "filter": {
+        "name": "Filter"
+      },
+      "online": {
+        "name": "Online"
+      }
+    }
+  }
+}
