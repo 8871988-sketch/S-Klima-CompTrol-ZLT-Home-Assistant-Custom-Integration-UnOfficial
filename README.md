@@ -160,6 +160,8 @@ Mode mapping:
 
 **Settings → Devices & services → S-Klima CompTrol ZLT → Configure**
 
+![Options](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/options.png)
+
 | Option | Default | Range |
 |---|---|---|
 | Polling interval | 30 s | 10–600 s |
