@@ -1,6 +1,10 @@
 {
   "domain": "s_klima",
   "name": "S-Klima CompTrol ZLT (unofficial)",
+  "categories": [
+    "climate.heat_pumps_air_conditioning",
+    "hubs_protocols.building_automation"
+  ],
   "codeowners": [
     "@8871988-sketch"
   ],
