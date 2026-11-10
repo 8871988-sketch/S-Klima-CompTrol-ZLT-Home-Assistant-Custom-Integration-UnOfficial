@@ -109,7 +109,11 @@ User name and password must not contain an apostrophe (`'`).
    | **User name** | user of the CompTrol web interface |
    | **Password** | password of this user |
 
-3. The integration logs in, reads the list of indoor units and creates the devices. Possible errors:
+3. The integration logs in, reads the list of indoor units and creates one device per unit plus one for the controller:
+
+   ![Integration page](https://raw.githubusercontent.com/8871988-sketch/S-Klima-CompTrol-ZLT-Home-Assistant-Custom-Integration-UnOfficial/main/docs/images/integration_page.png)
+
+   Possible errors:
 
    | Error | Cause |
    |---|---|
